@@ -8,6 +8,7 @@ public class DuplicateFilesRemover {
 	//
 	// Veche mojesh da pullvash uspeshno!
 	// gz
+	// v 2.0
 	//
 
 	public static void main(String[] args) {
