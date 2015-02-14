@@ -4,17 +4,17 @@ import java.io.File;
 import java.util.ArrayList;
 
 public class DirectoryReader {
-	private ArrayList<String> filesAndDirectories;
+	private ArrayList<File> filesAndDirectories;
 	private String basePath;
 	private File file;
 
-	public ArrayList<String> getFilesAndDirectories() {
+	public ArrayList<File> getFilesAndDirectories() {
 	    return filesAndDirectories;
 	}
 	
 	public DirectoryReader(String basePath) {
 		setBasePath(basePath);
-		filesAndDirectories = new ArrayList<String>();
+		filesAndDirectories = new ArrayList<File>();
 		file = new File(this.basePath);
 	}
 
@@ -45,7 +45,7 @@ public class DirectoryReader {
 				listFilesForFolder(fileEntry);
 			} else {
 				System.out.println(fileEntry.getAbsolutePath());
-				filesAndDirectories.add(fileEntry.getAbsolutePath());
+				filesAndDirectories.add(fileEntry);
 			}
 		}
 	}
