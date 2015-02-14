@@ -8,6 +8,10 @@ public class DirectoryReader {
 	private String basePath;
 	private File file;
 
+	public ArrayList<String> getFilesAndDirectories() {
+	    return filesAndDirectories;
+	}
+	
 	public DirectoryReader(String basePath) {
 		setBasePath(basePath);
 		filesAndDirectories = new ArrayList<String>();
@@ -27,7 +31,7 @@ public class DirectoryReader {
 	}
 
 	public boolean go() {
-		if (this.basePath == "")
+		if (getBasePath() == "")
 			return false;
 
 		this.listFilesForFolder(file);
@@ -44,6 +48,5 @@ public class DirectoryReader {
 				filesAndDirectories.add(fileEntry.getAbsolutePath());
 			}
 		}
-		// System.out.println(filesAndDirectories.size());
 	}
 }
