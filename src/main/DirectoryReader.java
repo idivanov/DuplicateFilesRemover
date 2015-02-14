@@ -1,13 +1,12 @@
 package main;
 
-import java.awt.List;
-import java.util.ArrayList;
 import java.io.File;
+import java.util.ArrayList;
 
 public class DirectoryReader {
-	private static ArrayList<String> filesAndDirectories;
-	private static String basePath;
-	private static File file;
+	private ArrayList<String> filesAndDirectories;
+	private String basePath;
+	private File file;
 
 	public DirectoryReader(String basePath) {
 		setBasePath(basePath);
