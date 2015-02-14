@@ -14,6 +14,10 @@ public class FindingDuplicateFiles {
 	
 	private HashMap<Long, ArrayList<File>> map;
 
+	public FindingDuplicateFiles() {
+        // TODO Auto-generated constructor stub
+    }
+	
 	public void setDublicateFiles(ArrayList<File> allFiles) {
 		map = new HashMap<>();
 
