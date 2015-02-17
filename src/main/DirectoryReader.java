@@ -2,51 +2,52 @@ package main;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 
 public class DirectoryReader {
-	private ArrayList<File> filesAndDirectories;
-	private String basePath;
-	private File file;
+    private List<File> filesAndDirectories;
+    private String basePath;
+    private File file;
 
-	public ArrayList<File> getFilesAndDirectories() {
-	    return filesAndDirectories;
-	}
-	
-	public DirectoryReader(String basePath) {
-		setBasePath(basePath);
-		filesAndDirectories = new ArrayList<File>();
-		file = new File(this.basePath);
-	}
+    public List<File> getFilesAndDirectories() {
+        return filesAndDirectories;
+    }
 
-	public String getBasePath() {
-		return basePath;
-	}
+    public DirectoryReader(String basePath) {
+        setBasePath(basePath);
+        filesAndDirectories = new ArrayList<File>();
+        file = new File(this.basePath);
+    }
 
-	public void setBasePath(String basePath) {
-		if (basePath != null) {
-			this.basePath = new String(basePath);
-		} else {
-			this.basePath = "";
-		}
-	}
+    public String getBasePath() {
+        return basePath;
+    }
 
-	public boolean go() {
-		if (getBasePath() == "")
-			return false;
+    public void setBasePath(String basePath) {
+        if (basePath != null) {
+            this.basePath = new String(basePath);
+        } else {
+            this.basePath = "";
+        }
+    }
 
-		this.listFilesForFolder(file);
+    public boolean go() {
+        if (getBasePath() == "")
+            return false;
 
-		return true;
-	}
+        this.listFilesForFolder(file);
 
-	public void listFilesForFolder(final File folder) {
-		for (final File fileEntry : folder.listFiles()) {
-			if (fileEntry.isDirectory()) {
-				listFilesForFolder(fileEntry);
-			} else {
-				System.out.println(fileEntry.getAbsolutePath());
-				filesAndDirectories.add(fileEntry);
-			}
-		}
-	}
+        return true;
+    }
+
+    public void listFilesForFolder(final File folder) {
+        for (final File fileEntry : folder.listFiles()) {
+            if (fileEntry.isDirectory()) {
+                listFilesForFolder(fileEntry);
+            } else {
+                System.out.println(fileEntry.getAbsolutePath());
+                filesAndDirectories.add(fileEntry);
+            }
+        }
+    }
 }

@@ -3,23 +3,21 @@ package main;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-import javax.swing.RowFilter.Entry;
-
 public class FindingDuplicateFiles {
-	// TODO:
-	// Opravi si construktorite!!!
-	// INACHE MECHKA!
-	
-	private HashMap<Long, ArrayList<File>> map;
+
+	private Map<Long, ArrayList<File>> map;
+//	private List<File> allDuplicateFiles;
 
 	public FindingDuplicateFiles() {
-        // TODO Auto-generated constructor stub
+	    map = new HashMap<>();
+//	    allDuplicateFiles = new ArrayList<>();
     }
 	
-	public void setDublicateFiles(ArrayList<File> allFiles) {
-		map = new HashMap<>();
+	public void setDublicateFiles(List<File> allFiles) {
+		
 
 		for (File file : allFiles) {
 			if (map.containsKey(file.length())) {
@@ -41,8 +39,26 @@ public class FindingDuplicateFiles {
 			}
 			System.out.println();
 			System.out.println();
-			System.out.println();
-			System.out.println();
 		}
 	}
+
+//    public List<File> getAllDuplicateFiles() {
+//        return allDuplicateFiles;
+//    }
+//
+//    public void setAllDuplicateFiles(ArrayList<File> allDuplicateFiles) {
+//        this.allDuplicateFiles = allDuplicateFiles;
+//    }
+    
+    public ArrayList<File> allDuplicateFiles() {
+        ArrayList<File> fileList = new ArrayList<>();
+        for (Map.Entry<Long, ArrayList<File>> entry : map.entrySet()) {
+            ArrayList<File> arrayList = entry.getValue();
+            if (arrayList.size() > 1) {
+                fileList.addAll(arrayList);
+                
+            }
+        }
+        return fileList;
+    }
 }
